@@ -1,0 +1,7 @@
+[
+    { "pk": 1, "model": "mapit.country", "fields": { "code": "CTR", "name": "Kosovo" } },
+
+    { "pk": 1, "model": "mapit.type", "fields": { "code": "LGA", "description": "Municipalities" } },
+
+]
+

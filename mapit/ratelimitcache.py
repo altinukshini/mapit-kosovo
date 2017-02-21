@@ -11,7 +11,7 @@ class ratelimit(object):
     "Instances of this class can be used as decorators"
     # This class is designed to be sub-classed
     minutes = 2  # The time period
-    requests = 20  # Number of allowed requests in that time period
+    requests = 1000  # Number of allowed requests in that time period
     # IP addresses or user agents that aren't rate limited
     excluded = settings.MAPIT_RATE_LIMIT
 
@@ -94,7 +94,7 @@ class ratelimit(object):
 
     def disallowed(self, request):
         "Over-ride this method if you want to log incidents"
-        return HttpResponseForbidden('Rate limit exceeded')
+        return HttpResponseForbidden('mapit.lokalizo.org rate limit exceeded')
 
     def expire_after(self):
         "Used for setting the memcached cache expiry"

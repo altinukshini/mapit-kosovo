@@ -35,7 +35,7 @@ enclosing_areas = {
 }
 
 
-@ratelimit(minutes=3, requests=100)
+@ratelimit(minutes=2, requests=1000)
 def postcode(request, postcode, format=None):
     if hasattr(countries, 'canonical_postcode'):
         canon_postcode = countries.canonical_postcode(postcode)
@@ -93,7 +93,7 @@ def postcode(request, postcode, format=None):
     return output_json(out)
 
 
-@ratelimit(minutes=3, requests=100)
+@ratelimit(minutes=2, requests=1000)
 def partial_postcode(request, postcode, format='json'):
     postcode = re.sub('\s+', '', postcode.upper())
     if is_valid_postcode(postcode):
@@ -118,7 +118,7 @@ def partial_postcode(request, postcode, format='json'):
     return output_json(postcode.as_dict())
 
 
-@ratelimit(minutes=3, requests=100)
+@ratelimit(minutes=2, requests=1000)
 def example_postcode_for_area(request, area_id, format='json'):
     area = get_object_or_404(Area, format=format, id=area_id)
     try:
@@ -147,7 +147,7 @@ def form_submitted(request):
     return redirect('mapit.views.postcodes.postcode', postcode=pc, format='html')
 
 
-@ratelimit(minutes=3, requests=100)
+@ratelimit(minutes=2, requests=1000)
 def nearest(request, srid, x, y, format='json'):
     location = Point(float(x), float(y), srid=int(srid))
     set_timeout(format)

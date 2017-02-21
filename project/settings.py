@@ -85,6 +85,7 @@ DATABASES = {
 SECRET_KEY = config.get('DJANGO_SECRET_KEY', '')
 
 ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'lokalizo.org', 'www.lokalizo.org', '46.165.253.226', 'sq.lokalizo.org', 'en.lokalizo.org', 'sr.lokalizo.org']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -259,3 +260,4 @@ if MAPIT_COUNTRY:
         pass
 
 DATE_FORMAT = 'j F Y'
+
